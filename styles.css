@@ -41,10 +41,10 @@ body {
     background: rgba(28, 29, 34, 0.98);
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 1.5px 8px rgba(255,126,95,0.08);
-    padding: 2rem 1.2rem 1.2rem 1.2rem;
+    padding: 1.2rem 1.2rem 0.8rem 1.2rem;
     max-width: 480px;
     width: 100%;
-    margin: 2rem auto;
+    margin: 1rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,25 +151,33 @@ h2 {
     width: 100%;
     min-width: 320px;
     max-width: 420px;
-    height: 340px;
-    margin: 2.5rem auto 1.5rem auto;
+    height: auto;
+    margin: 1.2rem auto 0.8rem auto;
     gap: 0.1em;
 }
 
-.age-row {
+.age-block {
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-bottom: 0.1em;
+    width: 100%;
 }
 
-.age-row-0 { font-size: 3.8rem; margin-left: 0em; }
-.age-row-1 { font-size: 2.7rem; margin-left: 1.2em; }
-.age-row-2 { font-size: 2.1rem; margin-left: 2.2em; }
-.age-row-3 { font-size: 1.6rem; margin-left: 1.5em; }
-.age-row-4 { font-size: 1.3rem; margin-left: 0.7em; }
-.age-row-5 { font-size: 1.1rem; margin-left: 2.5em; }
+.age-block-0 .age-num { font-size: 3.8rem; }
+.age-block-1 .age-num { font-size: 2.7rem; }
+.age-block-2 .age-num { font-size: 2.1rem; }
+.age-block-3 .age-num { font-size: 1.6rem; }
+.age-block-4 .age-num { font-size: 1.3rem; }
+.age-block-5 .age-num { font-size: 1.1rem; }
+
+.age-block-0 .age-label { font-size: 1.5rem; }
+.age-block-1 .age-label { font-size: 1.1rem; }
+.age-block-2 .age-label { font-size: 0.9rem; }
+.age-block-3 .age-label { font-size: 0.8rem; }
+.age-block-4 .age-label { font-size: 0.7rem; }
+.age-block-5 .age-label { font-size: 0.6rem; }
 
 .age-word {
     background: linear-gradient(120deg, #ff7e5f 0%, #feb47b 40%, #23242a 100%);
@@ -180,18 +188,11 @@ h2 {
     color: transparent;
     font-family: 'Inter', sans-serif;
     font-weight: 900;
-    margin-right: 0.5em;
     text-shadow: none;
     will-change: font-size;
     letter-spacing: 0.01em;
-}
-
-.age-row .age-word:last-child {
-    margin-right: 0;
-    font-weight: 700;
-    font-size: 0.7em;
-    letter-spacing: 0.03em;
-    text-transform: lowercase;
+    text-align: center;
+    margin: 0;
 }
 
 @media (max-width: 600px) {
@@ -201,12 +202,18 @@ h2 {
         height: auto;
         gap: 0.05em;
     }
-    .age-row-0 { font-size: 2.2rem; margin-left: 0em; }
-    .age-row-1 { font-size: 1.7rem; margin-left: 0.5em; }
-    .age-row-2 { font-size: 1.3rem; margin-left: 1em; }
-    .age-row-3 { font-size: 1.1rem; margin-left: 0.7em; }
-    .age-row-4 { font-size: 0.95rem; margin-left: 0.3em; }
-    .age-row-5 { font-size: 0.8rem; margin-left: 1em; }
+    .age-block-0 .age-num { font-size: 2.2rem; }
+    .age-block-1 .age-num { font-size: 1.7rem; }
+    .age-block-2 .age-num { font-size: 1.3rem; }
+    .age-block-3 .age-num { font-size: 1.1rem; }
+    .age-block-4 .age-num { font-size: 0.95rem; }
+    .age-block-5 .age-num { font-size: 0.8rem; }
+    .age-block-0 .age-label { font-size: 1.1rem; }
+    .age-block-1 .age-label { font-size: 0.9rem; }
+    .age-block-2 .age-label { font-size: 0.7rem; }
+    .age-block-3 .age-label { font-size: 0.6rem; }
+    .age-block-4 .age-label { font-size: 0.5rem; }
+    .age-block-5 .age-label { font-size: 0.4rem; }
 }
 
 .vertical {
