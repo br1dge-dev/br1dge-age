@@ -8,6 +8,15 @@ function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+// Hilfsfunktion: Zahl in ausgeschriebenes englisches Wort (0-99)
+function numberToWords(n) {
+    const ones = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+    const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    if (n < 20) return ones[n];
+    if (n < 100) return tens[Math.floor(n/10)] + (n%10 ? "-" + ones[n%10] : "");
+    return n.toString();
+}
+
 // Feste, nicht überlappende Bereiche für jede Einheit
 const unitStyles = [
     { left: 18, top: 10, size: randomInRange(3.5, 4.2) }, // years (sehr groß)
@@ -57,17 +66,15 @@ function updateAgeCloud() {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     const ageCloud = document.getElementById('age-cloud');
-    const units = [
-        { cls: 'age-years', value: years, label: 'years' },
-        { cls: 'age-months', value: months, label: 'months' },
-        { cls: 'age-days', value: days, label: 'days' },
-        { cls: 'age-hours', value: hours, label: 'hours' },
-        { cls: 'age-minutes', value: minutes, label: 'minutes' },
-        { cls: 'age-seconds', value: seconds, label: 'seconds' },
-    ];
-    ageCloud.innerHTML = units.map((u, i) =>
-        `<div class="age-unit ${u.cls} age-step age-step-${i}"><span class="age-num">${u.value}</span><span class="age-label">${u.label}</span></div>`
-    ).join('');
+    // Word-Cloud-ähnliche, zentrierte Anordnung
+    ageCloud.innerHTML = `
+      <div class="age-unit age-step-0" style="margin-left: 0em;">${numberToWords(years)} <span class="age-label">years</span></div>
+      <div class="age-unit age-step-1" style="margin-left: 2.5em;">${numberToWords(months)} <span class="age-label">months</span></div>
+      <div class="age-unit age-step-2" style="margin-left: 5em;">${numberToWords(days)} <span class="age-label">days</span></div>
+      <div class="age-unit age-step-3" style="margin-left: 3.5em;">${numberToWords(hours)} <span class="age-label">hours</span></div>
+      <div class="age-unit age-step-4" style="margin-left: 1.5em;">${numberToWords(minutes)} <span class="age-label">minutes</span></div>
+      <div class="age-unit age-step-5" style="margin-left: 4em;">${numberToWords(seconds)} <span class="age-label">seconds</span></div>
+    `;
 }
 
 function updateTransactionCount(count) {
