@@ -67,41 +67,47 @@ function updateAgeCloud() {
     // Zufällige Größen für jedes Wort (bei jedem Page Load gleich bleibend)
     if (!window.ageWordSizes) {
         window.ageWordSizes = [
-            randomInRange(3.2, 4.2), // years
-            randomInRange(2.2, 2.8), // months
-            randomInRange(1.5, 2.2), // days
-            randomInRange(1.2, 1.6), // hours
-            randomInRange(1.0, 1.3), // minutes
-            randomInRange(0.9, 1.1), // seconds
+            randomInRange(3.2, 4.2), // years Zahl
+            randomInRange(2.2, 2.8), // years Einheit
+            randomInRange(2.0, 2.5), // months Zahl
+            randomInRange(1.5, 2.1), // months Einheit
+            randomInRange(1.5, 2.0), // days Zahl
+            randomInRange(1.2, 1.6), // days Einheit
+            randomInRange(1.2, 1.5), // hours Zahl
+            randomInRange(1.0, 1.3), // hours Einheit
+            randomInRange(1.0, 1.2), // minutes Zahl
+            randomInRange(0.9, 1.1), // minutes Einheit
+            randomInRange(0.9, 1.1), // seconds Zahl
+            randomInRange(0.8, 1.0), // seconds Einheit
         ];
     }
-    const sizes = window.ageWordSizes;
+    const s = window.ageWordSizes;
 
     const ageCloud = document.getElementById('age-cloud');
     ageCloud.innerHTML = `
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:1.2rem;margin-bottom:0.2em;">
-        <span class="age-word" style="font-size:${sizes[0]}rem;">${numberToWords(years)}</span>
-        <span class="age-word" style="font-size:${sizes[1]}rem;align-self:flex-end;">years</span>
+        <span class="age-word" style="font-size:${s[0]}rem;">${numberToWords(years)}</span>
+        <span class="age-word" style="font-size:${s[1]}rem;align-self:flex-end;">years</span>
       </div>
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:1.1rem;margin-bottom:0.2em;">
-        <span class="age-word" style="font-size:${sizes[2]}rem;">${numberToWords(months)}</span>
-        <span class="age-word" style="font-size:${sizes[3]}rem;align-self:flex-end;">months</span>
+        <span class="age-word" style="font-size:${s[2]}rem;">${numberToWords(months)}</span>
+        <span class="age-word" style="font-size:${s[3]}rem;align-self:flex-end;">months</span>
       </div>
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:1rem;margin-bottom:0.2em;">
-        <span class="age-word" style="font-size:${sizes[4]}rem;">${numberToWords(days)}</span>
-        <span class="age-word" style="font-size:${sizes[5]}rem;align-self:flex-end;">days</span>
+        <span class="age-word" style="font-size:${s[4]}rem;">${numberToWords(days)}</span>
+        <span class="age-word" style="font-size:${s[5]}rem;align-self:flex-end;">days</span>
       </div>
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:0.9rem;margin-bottom:0.2em;">
-        <span class="age-word" style="font-size:1.2rem;">${numberToWords(hours)}</span>
-        <span class="age-word" style="font-size:1.1rem;align-self:flex-end;">hours</span>
+        <span class="age-word" style="font-size:${s[6]}rem;">${numberToWords(hours)}</span>
+        <span class="age-word" style="font-size:${s[7]}rem;align-self:flex-end;">hours</span>
       </div>
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:0.8rem;margin-bottom:0.2em;">
-        <span class="age-word" style="font-size:1.1rem;">${numberToWords(minutes)}</span>
-        <span class="age-word" style="font-size:1rem;align-self:flex-end;">minutes</span>
+        <span class="age-word" style="font-size:${s[8]}rem;">${numberToWords(minutes)}</span>
+        <span class="age-word" style="font-size:${s[9]}rem;align-self:flex-end;">minutes</span>
       </div>
       <div style="display:flex;justify-content:center;align-items:flex-end;gap:0.7rem;">
-        <span class="age-word" style="font-size:1rem;">${numberToWords(seconds)}</span>
-        <span class="age-word" style="font-size:0.9rem;align-self:flex-end;">seconds</span>
+        <span class="age-word" style="font-size:${s[10]}rem;">${numberToWords(seconds)}</span>
+        <span class="age-word" style="font-size:${s[11]}rem;align-self:flex-end;">seconds</span>
       </div>
     `;
 }
