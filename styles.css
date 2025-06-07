@@ -144,34 +144,34 @@ h2 {
 }
 
 .age-cloud {
-    position: relative;
-    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px;
+    max-width: 420px;
     height: 340px;
     margin: 2.5rem auto 1.5rem auto;
-    display: block;
-    overflow: visible;
+    gap: 0.1em;
 }
 
-@keyframes agecloud-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.age-unit {
-    position: absolute;
+.age-row {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    text-shadow: none;
-    will-change: font-size, left, top;
-    left: 50%;
-    transform: translateX(-50%);
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 0.1em;
 }
 
-.age-num, .age-label {
+.age-row-0 { font-size: 3.8rem; margin-left: 0em; }
+.age-row-1 { font-size: 2.7rem; margin-left: 1.2em; }
+.age-row-2 { font-size: 2.1rem; margin-left: 2.2em; }
+.age-row-3 { font-size: 1.6rem; margin-left: 1.5em; }
+.age-row-4 { font-size: 1.3rem; margin-left: 0.7em; }
+.age-row-5 { font-size: 1.1rem; margin-left: 2.5em; }
+
+.age-word {
     background: linear-gradient(120deg, #ff7e5f 0%, #feb47b 40%, #23242a 100%);
     background-size: 300% 300%;
     animation: agecloud-gradient 12s ease-in-out infinite;
@@ -180,42 +180,33 @@ h2 {
     color: transparent;
     font-family: 'Inter', sans-serif;
     font-weight: 900;
+    margin-right: 0.5em;
     text-shadow: none;
     will-change: font-size;
-    margin-right: 0.45em;
+    letter-spacing: 0.01em;
 }
 
-.age-label {
+.age-row .age-word:last-child {
+    margin-right: 0;
     font-weight: 700;
+    font-size: 0.7em;
     letter-spacing: 0.03em;
     text-transform: lowercase;
-    font-size: 0.6em;
-    margin-left: 0;
-    margin-right: 0;
 }
-
-.age-step-0 { top: 8%; left: 30%; font-size: 3.8rem; z-index: 2; }
-.age-step-1 { top: 22%; left: 65%; font-size: 2.7rem; z-index: 2; }
-.age-step-2 { top: 40%; left: 25%; font-size: 2.1rem; z-index: 2; }
-.age-step-3 { top: 56%; left: 70%; font-size: 1.6rem; z-index: 2; }
-.age-step-4 { top: 72%; left: 35%; font-size: 1.3rem; z-index: 2; }
-.age-step-5 { top: 86%; left: 60%; font-size: 1.1rem; z-index: 2; }
 
 @media (max-width: 600px) {
     .age-cloud {
-        width: 98vw;
-        height: 60vw;
         min-width: 180px;
-        min-height: 180px;
         max-width: 98vw;
-        max-height: 60vw;
+        height: auto;
+        gap: 0.05em;
     }
-    .age-step-0 { font-size: 2.2rem; }
-    .age-step-1 { font-size: 1.7rem; }
-    .age-step-2 { font-size: 1.3rem; }
-    .age-step-3 { font-size: 1.1rem; }
-    .age-step-4 { font-size: 0.95rem; }
-    .age-step-5 { font-size: 0.8rem; }
+    .age-row-0 { font-size: 2.2rem; margin-left: 0em; }
+    .age-row-1 { font-size: 1.7rem; margin-left: 0.5em; }
+    .age-row-2 { font-size: 1.3rem; margin-left: 1em; }
+    .age-row-3 { font-size: 1.1rem; margin-left: 0.7em; }
+    .age-row-4 { font-size: 0.95rem; margin-left: 0.3em; }
+    .age-row-5 { font-size: 0.8rem; margin-left: 1em; }
 }
 
 .vertical {

@@ -66,14 +66,13 @@ function updateAgeCloud() {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
     const ageCloud = document.getElementById('age-cloud');
-    // Word-Cloud-ähnliche, zentrierte Anordnung
     ageCloud.innerHTML = `
-      <div class="age-unit age-step-0" style="margin-left: 0em;">${numberToWords(years)} <span class="age-label">years</span></div>
-      <div class="age-unit age-step-1" style="margin-left: 2.5em;">${numberToWords(months)} <span class="age-label">months</span></div>
-      <div class="age-unit age-step-2" style="margin-left: 5em;">${numberToWords(days)} <span class="age-label">days</span></div>
-      <div class="age-unit age-step-3" style="margin-left: 3.5em;">${numberToWords(hours)} <span class="age-label">hours</span></div>
-      <div class="age-unit age-step-4" style="margin-left: 1.5em;">${numberToWords(minutes)} <span class="age-label">minutes</span></div>
-      <div class="age-unit age-step-5" style="margin-left: 4em;">${numberToWords(seconds)} <span class="age-label">seconds</span></div>
+      <div class="age-row age-row-0"><span class="age-word">${numberToWords(years)}</span><span class="age-word">years</span></div>
+      <div class="age-row age-row-1"><span class="age-word">${numberToWords(months)}</span><span class="age-word">months</span></div>
+      <div class="age-row age-row-2"><span class="age-word">${numberToWords(days)}</span><span class="age-word">days</span></div>
+      <div class="age-row age-row-3"><span class="age-word">${numberToWords(hours)}</span><span class="age-word">hours</span></div>
+      <div class="age-row age-row-4"><span class="age-word">${numberToWords(minutes)}</span><span class="age-word">minutes</span></div>
+      <div class="age-row age-row-5"><span class="age-word">${numberToWords(seconds)}</span><span class="age-word">seconds</span></div>
     `;
 }
 
