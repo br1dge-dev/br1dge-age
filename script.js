@@ -1,5 +1,5 @@
 const address = '0x80BfB857770a802f7eF375921AD5E83c76214a2d';
-const etherscanApiKey = 'WEGQIS7RDT26JJKRCVB6ZKNS5V186Q1TYQ';
+const etherscanApiKey = import.meta.env?.VITE_ETHERSCAN_API_KEY || Deno.env?.get('ETHERSCAN_API_KEY') || '';
 
 let firstTxTimestamp = null;
 
