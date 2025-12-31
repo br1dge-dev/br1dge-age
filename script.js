@@ -29,7 +29,7 @@ const unitStyles = [
 
 async function getFirstTransaction() {
     try {
-        const response = await fetch(`https://api.etherscan.io/v2/api?chainid=1&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${etherscanApiKey}`);
+        const response = await fetch(`https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${etherscanApiKey}`);
         const data = await response.json();
         
         if (data.status === '1' && data.result.length > 0) {
