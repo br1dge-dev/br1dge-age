@@ -1,5 +1,5 @@
 const address = '0x80BfB857770a802f7eF375921AD5E83c76214a2d';
-const etherscanApiKey = import.meta.env.VITE_ETHERSCAN_API_KEY || 'demo';
+const etherscanApiKey = import.meta.env.VITE_ETHERSCAN_API_KEY || '';
 
 let firstTxTimestamp = null;
 
@@ -29,16 +29,6 @@ const unitStyles = [
 
 async function getFirstTransaction() {
     try {
-        // Check if API key is available
-        if (!etherscanApiKey || etherscanApiKey === 'demo') {
-            console.warn('VITE_ETHERSCAN_API_KEY not set. Using demo mode.');
-            // Set a placeholder age for demo
-            firstTxTimestamp = Date.now() - (1 * 365 * 24 * 60 * 60 * 1000); // 1 year ago
-            updateAgeCloud();
-            setInterval(updateAgeCloud, 1000);
-            return;
-        }
-        
         const response = await fetch(`https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=asc&apikey=${etherscanApiKey}`);
         const data = await response.json();
         
